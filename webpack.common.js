@@ -22,6 +22,7 @@ const modules = {
 	settings,
 	accessibility,
 	comments,
+	files,
 	files_sharing,
 	files_trashbin,
 	files_versions,
