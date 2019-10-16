@@ -31,7 +31,7 @@
 		<!-- shares content -->
 		<template v-else>
 			<!-- shared with me information -->
-			<SharingEntrySimple v-if="isSharedWithMe" v-bind="sharedWithMe">
+			<SharingEntrySimple v-if="isSharedWithMe" v-bind="sharedWithMe" class="sharing-entry__reshare">
 				<template #avatar>
 					<Avatar #avatar
 						:user="sharedWithMe.user"

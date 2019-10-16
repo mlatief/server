@@ -21,7 +21,7 @@
   -->
 
 <template>
-	<li :class="{'sharing-entry--share': share}" class="sharing-entry">
+	<li :class="{'sharing-entry--share': share}" class="sharing-entry sharing-entry__link">
 		<Avatar :is-no-user="true"
 			:class="isEmailShareType ? 'icon-mail-white' : 'icon-public-white'"
 			class="sharing-entry__avatar" />
@@ -64,6 +64,7 @@
 			<ActionCheckbox v-else-if="config.enableLinkPasswordByDefault"
 				:checked.sync="isPasswordProtected"
 				:disabled="config.enforcePasswordForPublicLink || saving"
+				class="share-link-password-checkbox"
 				@uncheck="onPasswordDisable">
 				{{ t('files_sharing', 'Password protection') }}
 			</ActionCheckbox>
@@ -74,6 +75,7 @@
 					trigger: 'manual',
 					defaultContainer: '#app-sidebar'
 				}"
+				class="share-link-password"
 				:value.sync="share.password"
 				:disabled="saving"
 				:required="config.enableLinkPasswordByDefault || config.enforcePasswordForPublicLink"
@@ -96,6 +98,7 @@
 					trigger: 'manual',
 					defaultContainer: '#app-sidebar'
 				}"
+				class="share-link-expire-date"
 				:disabled="saving"
 				:first-day-of-week="firstDay"
 				:lang="lang"
@@ -165,6 +168,7 @@
 					<!-- password -->
 					<ActionCheckbox :checked.sync="isPasswordProtected"
 						:disabled="config.enforcePasswordForPublicLink || saving"
+						class="share-link-password-checkbox"
 						@uncheck="onPasswordDisable">
 						{{ config.enforcePasswordForPublicLink
 							? t('files_sharing', 'Password protection (enforced)')
@@ -178,6 +182,7 @@
 							trigger: 'manual',
 							defaultContainer: '#app-sidebar'
 						}"
+						class="share-link-password"
 						:class="{ error: errors.password}"
 						:disabled="saving"
 						:required="config.enforcePasswordForPublicLink"
@@ -193,6 +198,7 @@
 					<!-- expiration date -->
 					<ActionCheckbox :checked.sync="hasExpirationDate"
 						:disabled="config.isDefaultExpireDateEnforced || saving"
+						class="share-link-expire-date-checkbox"
 						@uncheck="onExpirationDisable">
 						{{ config.isDefaultExpireDateEnforced
 							? t('files_sharing', 'Expiration date (enforced)')
@@ -206,6 +212,7 @@
 							trigger: 'manual',
 							defaultContainer: '#app-sidebar'
 						}"
+						class="share-link-expire-date"
 						:class="{ error: errors.expireDate}"
 						:disabled="saving"
 						:first-day-of-week="firstDay"

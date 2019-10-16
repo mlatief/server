@@ -19,6 +19,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  *
  */
+// TODO: remove when ie not supported
+import 'url-search-params-polyfill'
 
 import { generateOcsUrl } from '@nextcloud/router'
 import axios from '@nextcloud/axios'

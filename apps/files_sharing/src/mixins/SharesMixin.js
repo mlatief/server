@@ -229,7 +229,10 @@ export default {
 		 */
 		queueUpdate(property) {
 			if (this.share.id) {
-				const value = this.share[property]
+				// force value to string because that is what our
+				// share api controller accepts
+				const value = this.share[property].toString()
+
 				this.updateQueue.add(async() => {
 					this.saving = true
 					this.errors = {}

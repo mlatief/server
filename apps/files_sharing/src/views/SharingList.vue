@@ -21,7 +21,7 @@
   -->
 
 <template>
-	<ul>
+	<ul class="sharing-sharee-list">
 		<SharingEntry v-for="share in shares"
 			:key="share.id"
 			:file-info="fileInfo"

@@ -21,7 +21,7 @@
   -->
 
 <template>
-	<ul>
+	<ul class="sharing-link-list">
 		<!-- If no link shares, show the add link default entry -->
 		<SharingEntryLink v-if="!hasLinkShares" :file-info="fileInfo" @add:share="addShare" />
 

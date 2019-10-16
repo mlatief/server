@@ -53,7 +53,7 @@
     "moment-timezone": "^0.5.27",
     "nextcloud-password-confirmation": "^0.4.2",
     "nextcloud-router": "0.0.9",
-    "nextcloud-vue": "^0.12.5",
+    "nextcloud-vue": "^0.12.7",
     "nextcloud-vue-collections": "^0.5.6",
     "p-queue": "^6.1.0",
     "query-string": "^5.1.1",
@@ -62,6 +62,7 @@
     "strengthify": "git+https://github.com/MorrisJobke/strengthify.git#0.5.8",
     "toastify-js": "^1.6.1",
     "underscore": "^1.9.1",
+    "url-search-params-polyfill": "^7.0.0",
     "v-tooltip": "^2.0.2",
     "vue": "^2.6.10",
     "vue-click-outside": "^1.0.7",
@@ -81,7 +82,7 @@
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
     "babel-plugin-transform-es2015-arrow-functions": "^6.22.0",
-    "browserslist-config-nextcloud": "0.1.0",
+    "browserslist-config-nextcloud": "^0.1.0",
     "css-loader": "^3.2.0",
     "eslint": "^5.16.0",
     "eslint-config-nextcloud": "0.0.6",
@@ -107,6 +108,7 @@
     "webpack-merge": "^4.2.2"
   },
   "browserslist": [
+    "Firefox 47",
     "extends browserslist-config-nextcloud"
   ],
   "engines": {
