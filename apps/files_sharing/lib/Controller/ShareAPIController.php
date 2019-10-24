@@ -1313,7 +1313,7 @@ class ShareAPIController extends OCSController {
 		if ($this->shareManager->shareProviderExists(Share::SHARE_TYPE_ROOM)) {
 			$roomShares = $this->shareManager->getSharesBy($this->currentUser, Share::SHARE_TYPE_ROOM, $path, $reshares, -1, 0);
 		} else {
-			$circleShares = [];
+			$roomShares = [];
 		}
 
 		// FEDERATION
