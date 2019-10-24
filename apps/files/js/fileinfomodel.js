@@ -39,7 +39,6 @@
 		_filesClient: null,
 
 		initialize: function(data, options) {
-			console.info(data, options);
 			if (!_.isUndefined(data.id)) {
 				data.id = parseInt(data.id, 10);
 			}

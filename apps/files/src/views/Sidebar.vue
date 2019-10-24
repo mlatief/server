@@ -297,7 +297,6 @@ export default {
 		 * @param {string} id tab unique id
 		 */
 		setActiveTab(id) {
-			console.info(id)
 			OCA.Files.Sidebar.activeTab = id
 		},
 

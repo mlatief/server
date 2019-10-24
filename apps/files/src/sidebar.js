@@ -50,10 +50,10 @@ window.addEventListener('DOMContentLoaded', () => {
 	}
 
 	// Init vue app
-	OCA.Files.Sidebar.view = new Vue({
-		el: '#app-sidebar',
+	const AppSidebar = new Vue({
 		// eslint-disable-next-line vue/match-component-file-name
 		name: 'SidebarRoot',
 		render: h => h(SidebarView)
 	})
+	AppSidebar.$mount('#app-sidebar')
 })

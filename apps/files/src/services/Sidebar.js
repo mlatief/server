@@ -87,6 +87,16 @@ export default class Sidebar {
 	}
 
 	/**
+	 * Set the current sidebar file data
+	 *
+	 * @returns {String} the current opened file
+	 * @memberof Sidebar
+	 */
+	get file() {
+		return this.#state.file
+	}
+
+	/**
 	 * Set the current sidebar tab
 	 *
 	 * @param {string} id the tab unique id
