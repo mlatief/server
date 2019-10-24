@@ -23,7 +23,7 @@
 <template>
 	<Multiselect ref="multiselect"
 		class="sharing-input"
-		:disabled="reshare && !reshare.hasSharePermission"
+		:disabled="!canReshare"
 		:hide-selected="true"
 		:internal-search="false"
 		:loading="loading"
@@ -84,6 +84,10 @@ export default {
 		reshare: {
 			type: Share,
 			default: null
+		},
+		canReshare: {
+			type: Boolean,
+			required: true
 		}
 	},
 
@@ -114,7 +118,7 @@ export default {
 			const allowRemoteSharing = this.config.isRemoteShareAllowed
 			const allowMailSharing = this.config.isMailShareAllowed
 
-			if (this.reshare && !this.reshare.hasSharePermission) {
+			if (!this.canReshare) {
 				return t('files_sharing', 'Resharing is not allowed')
 			}
 			if (!allowRemoteSharing && allowMailSharing) {

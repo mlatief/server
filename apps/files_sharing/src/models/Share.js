@@ -377,7 +377,7 @@ export default class Share {
 
 	// PERMISSIONS Shortcuts
 	/**
-	 * Does this share have Create Permissions
+	 * Does this share have CREATE permissions
 	 *
 	 * @returns {boolean}
 	 * @readonly
@@ -388,7 +388,18 @@ export default class Share {
 	}
 
 	/**
-	 * Does this share have update Permissions
+	 * Does this share have DELETE permissions
+	 *
+	 * @returns {boolean}
+	 * @readonly
+	 * @memberof Share
+	 */
+	get hasDeletePermission() {
+		return !!((this.permissions & OC.PERMISSION_DELETE))
+	}
+
+	/**
+	 * Does this share have UPDATE permissions
 	 *
 	 * @returns {boolean}
 	 * @readonly
@@ -399,7 +410,7 @@ export default class Share {
 	}
 
 	/**
-	 * Does this share have share Permissions
+	 * Does this share have SHARE permissions
 	 *
 	 * @returns {boolean}
 	 * @readonly

@@ -259,7 +259,7 @@
 				<ActionButton icon="icon-delete" :disabled="saving" @click.prevent="onDelete">
 					{{ t('files_sharing', 'Delete share') }}
 				</ActionButton>
-				<ActionButton v-if="!isEmailShareType"
+				<ActionButton v-if="!isEmailShareType && canReshare"
 					class="new-share-link"
 					icon="icon-add"
 					@click.prevent.stop="onNewLinkShare">
@@ -268,7 +268,7 @@
 			</template>
 
 			<!-- Create new share -->
-			<ActionButton v-else
+			<ActionButton v-else-if="canReshare"
 				class="new-share-link"
 				icon="icon-add"
 				@click.prevent.stop="onNewLinkShare">
@@ -321,6 +321,13 @@ export default {
 	},
 
 	mixins: [SharesMixin],
+
+	props: {
+		canReshare: {
+			type: Boolean,
+			default: true
+		}
+	},
 
 	data() {
 		return {

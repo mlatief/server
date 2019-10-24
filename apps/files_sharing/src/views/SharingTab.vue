@@ -43,16 +43,18 @@
 
 			<!-- add new share input -->
 			<SharingInput v-if="!loading"
-				:shares="shares"
-				:link-shares="linkShares"
+				:can-reshare="canReshare"
 				:file-info="fileInfo"
+				:link-shares="linkShares"
 				:reshare="reshare"
+				:shares="shares"
 				@add:share="addShare" />
 
 			<!-- link shares list -->
 			<SharingLinkList v-if="!loading"
-				:shares="linkShares"
-				:file-info="fileInfo" />
+				:can-reshare="canReshare"
+				:file-info="fileInfo"
+				:shares="linkShares" />
 
 			<!-- other shares list -->
 			<SharingList v-if="!loading"
@@ -164,6 +166,11 @@ export default {
 		 */
 		isSharedWithMe() {
 			return Object.keys(this.sharedWithMe).length > 0
+		},
+
+		canReshare() {
+			return !!(this.fileInfo.permissions & OC.PERMISSION_SHARE)
+				|| !!(this.reshare && this.reshare.hasSharePermission)
 		}
 	},
 
@@ -310,10 +317,13 @@ export default {
 		 * @param {Share} share the share to insert
 		 */
 		addShare(share) {
+			// only catching share type MAIL as link shares are added differently
+			// meaning: not from the ShareInput
 			if (share.type === this.SHARE_TYPES.SHARE_TYPE_EMAIL) {
 				this.linkShares.unshift(share)
+			} else {
+				this.shares.unshift(share)
 			}
-			this.shares.unshift(share)
 		}
 	}
 }
